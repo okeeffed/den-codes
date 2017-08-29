@@ -66,7 +66,10 @@
 			&.-one,
 			&.-two,
 			&.-three,
-			&.-four,
+			&.-four {
+				@include grid-column(2);
+			}
+
 			&.-five,
 			&.-six,
 			&.-seven,
@@ -75,7 +78,7 @@
 			&.-ten,
 			&.-eleven,
 			&.-twelve, {
-				@include grid-column(2);
+				@include grid-column(4);
 			}
 		}
 
