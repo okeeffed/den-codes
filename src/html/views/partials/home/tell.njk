@@ -1,5 +1,15 @@
-<div class="tell">
+<div class="tell section">
 	<div class="lead">
 		<h2 class="lead-title">Tell me more about the <del>party</del> code.</h2>
+	</div>
+	<div class="grid grid-container">
+		{% for item in tell_section.skills %}
+			<div class="item -tell -four">
+				<h4 class="skill-title">{{ item.title }}</h4>
+				<div class="progress-bar">
+					<span class="bottom {{ item.class }}"></span>
+				</div>
+			</div>
+		{% endfor %}
 	</div>
 </div>

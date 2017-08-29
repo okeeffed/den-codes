@@ -1,19 +1,29 @@
 .home {
 	.lead {
 		margin-bottom: 30px;
-		height: 98px;
 		width: 100%;
 
 		border-bottom: solid 3px $c-black;
 
 		> .lead-title {
+			margin-bottom: 30px;
+			max-width: 410px;
+
 			@include f-primary-bold;
-			font-size: 38px;
-			line-height: 98px;
+			font-size: 3.8rem;
+			line-height: 40px;
 		}
 	}
 
 	.main {
 		padding: 0 80px;
+
+		@include grid-media($mobile) {
+			padding: 0 20px;
+		}
+	}
+
+	.section {
+		margin-bottom: 30px;
 	}
 }

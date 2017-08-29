@@ -1,6 +1,14 @@
-<div class="what">
+<div class="what section">
 	<div class="lead">
 		<h2 class="lead-title">What <del>party</del> code.</h2>
 	</div>
-	<h3>Experience</h3>
+	<h3 class="experience margin-bottom-30">Experience</h3>
+	<div class="grid grid-container">
+		{% for item in what_section.experience %}
+		<div class="item -what">
+			<h4 class="heading">{{ item.heading }}</h4>
+			<p class="copy">{{ item.copy }}</p>
+		</div>
+		{% endfor %}
+	</div>
 </div>
