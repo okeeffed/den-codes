@@ -3,9 +3,11 @@
 {% block content %}
 	<div class="home container">
 		{% include "partials/home/hej.njk" %}
-		{% include "partials/home/what.njk" %}
-		{% include "partials/home/tell.njk" %}
-		{% include "partials/home/show.njk" %}
-		{% include "partials/home/connect.njk" %}
+		<div class="main">
+			{% include "partials/home/what.njk" %}
+			{% include "partials/home/tell.njk" %}
+			{% include "partials/home/show.njk" %}
+			{% include "partials/home/connect.njk" %}
+		</div>
 	</div>
 {% endblock %}

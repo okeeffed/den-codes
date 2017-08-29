@@ -1,6 +1,4 @@
 .home {
-	padding: 42px 0;
-
 	.lead {
 		margin-bottom: 30px;
 		height: 98px;
@@ -13,5 +11,9 @@
 			font-size: 38px;
 			line-height: 98px;
 		}
+	}
+
+	.main {
+		padding: 0 80px;
 	}
 }

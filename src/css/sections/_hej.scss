@@ -1,0 +1,33 @@
+.hej {
+	position: relative;
+	height: 580px;
+	width: 100%;
+
+	overflow: hidden;
+
+	background-image: url('/img/home.jpg');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+
+	color: $c-white;
+
+	.title {
+		position: absolute;
+		left: 80px;
+		top: 300px;
+
+		@include f-primary-bold;
+		font-size: 7.2rem;
+	}
+
+	.subtitle {
+		position: absolute;
+		left: 80px;
+		top: 408px;
+		max-width: 446px;
+
+		@include f-primary-bold;
+		font-size: 3.8rem;
+	}
+}
