@@ -6,6 +6,10 @@
 		align-items: center;
 
 		margin-bottom: 10px;
+
+		&:last-of-type {
+			margin-bottom: 40px;
+		}
 	}
 
 	.social {
@@ -13,6 +17,11 @@
 
 		height: 50px;
 		width: 50px;
+
+		@include grid-media($mobile) {
+			height: 30px;
+			width: 30px;
+		}
 	}
 
 	.cta {
@@ -20,6 +29,10 @@
 
 		@include f-primary-light;
 		font-size: 1.6rem;
+
+		@include grid-media($mobile) {
+			font-size: 1.2rem;
+		}
 	}
 
 	a.cta {

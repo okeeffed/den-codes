@@ -1,1 +1,2 @@
-<self>: 1.5 KB (100%)
+smooth-scroll: 4.31 KB (58.8%)
+<self>: 3.02 KB (41.2%)

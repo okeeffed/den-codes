@@ -1,12 +1,8 @@
-import layout from './modules/layout';
-
-
-
-
+import Layout from './modules/layout';
 
 function fn(){
-	const test = new layout();
-  test.init();
+	const layout = new Layout();
+	layout.init();
 }
 // Native
 // Check if the DOMContentLoaded has already been completed

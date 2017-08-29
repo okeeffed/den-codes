@@ -12,6 +12,11 @@
 			@include f-primary-bold;
 			font-size: 3.8rem;
 			line-height: 40px;
+
+			@include grid-media($mobile) {
+				font-size: 2.6rem;
+				line-height: 28px;
+			}
 		}
 	}
 
