@@ -17,28 +17,44 @@
 
 		transition: width 270ms ease-out;
 
+		&.-ten {
+			width: 10%;
+		}
+
+		&.-twenty {
+			width: 20%;
+		}
+
+		&.-thirty {
+			width: 30%;
+		}
+
+		&.-forty {
+			width: 40%;
+		}
+
+		&.-fifty {
+			width: 50%;
+		}
+
+		&.-sixty {
+			width: 60%;
+		}
+
+		&.-seventy {
+			width: 70%;
+		}
+
 		&.-eighty {
 			width: 80%;
 		}
 
-		&.two {
-			width: 40%;
+		&.-ninety {
+			width: 90%;
 		}
 
-		&.three {
-			width: 60%;
-		}
-
-		&.four {
-			width: 80%;
-		}
-
-		&.five {
+		&.-one-hundred {
 			width: 100%;
-		}
-
-		&.zero {
-			width: 0%;
 		}
 	}
 }
