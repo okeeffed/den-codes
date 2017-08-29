@@ -1,3 +1,44 @@
-.primary-header {
-  color: $c-black;
+.header {
+	height: 60px;
+
+	color: $c-black;
+
+	.links {
+		float: right;
+	}
+
+	.link-list {
+		margin: 0;
+		line-height: 60px;
+	}
+
+	.link {
+		display: inline-block;
+		margin-left: 10px;
+
+		> a {
+			@include f-primary-semibold;
+			font-size: 1.8rem;
+
+			transition: color $a-desktop-enter ease-out;
+
+			&:hover,
+			&:active {
+				color: lighten($c-black, 30%);
+			}
+		}
+	}
+
+	.link-home {
+		@include f-primary-extrabold;
+		font-size: 1.8rem;
+		line-height: 60px;
+
+		transition: color $a-desktop-enter ease-out;
+
+		&:hover,
+		&:active {
+			color: lighten($c-black, 30%);
+		}
+	}
 }

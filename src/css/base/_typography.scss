@@ -52,8 +52,17 @@
   font-family: 'opensans-semibold';
   font-style: normal;
   font-weight: 600;
-  src: local('OpenSans Semibold'), local('OpenSans-Semibold'),
-       url('/styles/fonts/OpenSans-Semibold.ttf') format('truetype'), /* Safari, Android, iOS */
+  src: local('OpenSans SemiBold'), local('OpenSans-SemiBold'),
+       url('/styles/fonts/OpenSans-SemiBold.ttf') format('truetype'), /* Safari, Android, iOS */
+}
+
+/* open sans - extrabold */
+@font-face {
+  font-family: 'opensans-extrabold';
+  font-style: normal;
+  font-weight: 600;
+  src: local('OpenSans ExtraBold'), local('OpenSans-ExtraBold'),
+       url('/styles/fonts/OpenSans-ExtraBold.ttf') format('truetype'), /* Safari, Android, iOS */
 }
 
 // Font mixins
@@ -84,6 +93,12 @@
 @mixin f-primary-semibold {
 	font: {
 		family: 'opensans-semibold', sans-serif;
+	}
+}
+
+@mixin f-primary-extrabold {
+	font: {
+		family: 'opensans-extrabold', sans-serif;
 	}
 }
 
