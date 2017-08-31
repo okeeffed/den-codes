@@ -2,6 +2,7 @@
 /* global $: true */
 'use strict';
 
+require('dotenv').config();
 import babelify from 'babelify';
 import gulp from 'gulp';
 import fs from 'fs';
@@ -17,7 +18,7 @@ import through from 'through2';
 import eslint from 'gulp-eslint';
 var browserSync = require('browser-sync').create();
 var Metalsmith = require('metalsmith');
-
+const merge       	= require('merge-stream');
 const imageminPngquant = require('imagemin-pngquant');
 
 const $ = gulpLoadPlugins();
@@ -220,11 +221,11 @@ gulp.task('stylesheets', ['javascript'], (done) => {
 		.pipe($.sass({
 			style: 'expanded',
 			includePaths: paths .concat(require('node-neat').includePaths)
-			
-			
+
+
 			.concat(require('node-normalize-scss').includePaths)
-			
-			
+
+
 		}))
 		.on('error', $.sass.logError)
 		.on('error', function (e) {
@@ -298,9 +299,58 @@ gulp.task("build", function (callback) {
 		callback)
 });
 
-
-// Publish to whatever here
+// AWS Publish
 gulp.task('publish', function () {
 
-});
+	const publisher = $.awspublish.create({
+		region: 'ap-southeast-2',
+		params: {
+			Bucket: process.env.S3_BUCKET_NAME
+		},
+		"accessKeyId": process.env.AWS_ACCESS_KEY,
+		"secretAccessKey": process.env.AWS_SECRET_KEY
+	});
 
+	// const invalidator = {
+	// 	distribution: process.env.CLOUDFRONT_ID,
+	// 	accessKeyId: process.env.AWS_ACCESS_KEY,
+	// 	secretAccessKey: process.env.AWS_SECRET_KEY,
+	// 	indexRootPath: true
+	// };
+
+	const html = gulp.src('dist/**/*.html')
+		.pipe($.rename(function (path) {
+			path.dirname = '/' + path.dirname;
+			path.extname = '';
+		}))
+		.pipe(publisher.publish({
+			'Content-Type': 'text/html',
+			'Cache-Control': 'max-age=300, no-transform, public'
+		}));
+
+	const files = gulp.src(['dist/**', '!dist/**/*.html'])
+		.pipe($.rename(function (path) {
+			path.dirname = '/' + path.dirname;
+		}))
+		.pipe($.awspublishRouter({
+            cache: {
+                // cache for 5 minutes by default
+                cacheTime: 300
+            },
+            routes: {
+            	"^(js|css|img|fonts)/.+$": {
+                    // cache static assets for a week
+                    cacheTime: 604800
+                },
+
+            	// pass-through for anything that wasn't matched by routes above, to be uploaded with default options
+            	"^.+$": "$&"
+            }
+        }))
+		.pipe(publisher.publish());
+
+	return merge(files, html)
+		.pipe(publisher.cache())
+		.pipe($.awspublish.reporter());
+		// .pipe($.cloudfrontInvalidateAwsPublish(invalidator));
+});
