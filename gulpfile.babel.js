@@ -311,12 +311,12 @@ gulp.task('publish', function () {
 		"secretAccessKey": process.env.AWS_SECRET_KEY
 	});
 
-	// const invalidator = {
-	// 	distribution: process.env.CLOUDFRONT_ID,
-	// 	accessKeyId: process.env.AWS_ACCESS_KEY,
-	// 	secretAccessKey: process.env.AWS_SECRET_KEY,
-	// 	indexRootPath: true
-	// };
+	const invalidator = {
+		distribution: process.env.CLOUDFRONT_ID,
+		accessKeyId: process.env.AWS_ACCESS_KEY,
+		secretAccessKey: process.env.AWS_SECRET_KEY,
+		indexRootPath: true
+	};
 
 	const html = gulp.src('dist/**/*.html')
 		.pipe($.rename(function (path) {
@@ -351,6 +351,6 @@ gulp.task('publish', function () {
 
 	return merge(files, html)
 		.pipe(publisher.cache())
-		.pipe($.awspublish.reporter());
-		// .pipe($.cloudfrontInvalidateAwsPublish(invalidator));
+		.pipe($.awspublish.reporter())
+		.pipe($.cloudfrontInvalidateAwsPublish(invalidator));
 });
