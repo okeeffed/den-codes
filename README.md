@@ -1,5 +1,7 @@
-# den-codes
+# Den Codes
 
-Structure of Flickr API runs like this:
+Person website repo.
 
-`https://farm{farm-id}.staticflickr.com/{server-id}/{id}_{secret}.jpg`
+## Version 1.0
+
+Super basic repo.
