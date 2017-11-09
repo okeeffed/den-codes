@@ -23,5 +23,9 @@
 
 	&.-show {
 		margin-bottom: 30px;
+
+		.subheading {
+			word-break: break-all;
+		}
 	}
 }

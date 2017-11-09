@@ -301,7 +301,6 @@ gulp.task("build", function (callback) {
 
 // AWS Publish
 gulp.task('publish', function () {
-
 	const publisher = $.awspublish.create({
 		region: 'ap-southeast-2',
 		params: {
