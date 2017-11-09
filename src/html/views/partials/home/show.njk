@@ -1,8 +1,5 @@
 <div id="show" class="show section">
-	<div class="lead">
-		<h2 class="lead-title">Show me the output.</h2>
-	</div>
-	<div class="grid grid-container">
+{# 	<div class="grid grid-container">
 		{% for item in show_section.content %}
 			<div class="item -show -twelve">
 				<h4 class="heading">{{ item.title }}</h4>
@@ -16,5 +13,32 @@
 				{% endif %}
 			</div>
 		{% endfor %}
+	</div> #}
+	<h2 class="title">Work.</h2>
+	<!-- Slider main container -->
+	<div class="swiper-container">
+		<!-- Additional required wrapper -->
+		<div class="swiper-wrapper">
+			{% for item in show_section.content %}
+				<div class="swiper-slide">
+					<div class="flex">
+{# 						<h4 class="heading">{{ item.title }}</h4>
+						{% if item.site != '#' %}
+							<a class="subheading" target="_blank" href="{{ item.site }}" class="heading">{{ item.site }}</a>
+						{% endif %}
+						<p class="copy">{{ item.copy }}</p>
+						<p class="keywords">{{ item.keywords }}</p> #}
+						<div class="parent">
+							<div class="heading-wrapper e-floating">
+								<h4 class="heading">{{ item.title }}</h4>
+							</div>
+							<a class="link e-raised e-hover-floating animate -exit" target="_blank" href="{{ item.site }}" class="heading"><span class="cta"></span></a>
+							<img class="web-image e-floating" src="/img/web/yellowtail.png" />
+						</div>
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+		{# <div class="swiper-pagination"></div> #}
 	</div>
 </div>

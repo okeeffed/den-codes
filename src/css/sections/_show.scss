@@ -1,9 +1,47 @@
 .show {
+	position: relative;
+	height: 100vh;
+
+	> .title {
+		@include f-primary-bold;
+		font-size: 3.8rem;
+		line-height: 40px;
+
+		text-align: center;
+
+		@include grid-media($mobile) {
+			font-size: 2.6rem;
+			line-height: 28px;
+		}
+	}
+
+	.flex {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.heading-wrapper{
+		position: absolute;
+		top: 40px;
+		left: -10%;
+		z-index: 1000;
+
+		padding: 20px;
+
+		background-color: $c-black;
+	}
+
 	.heading {
-		margin-bottom: 4px;
+		max-width: 200px;
 
 		@include f-primary-bold;
-		font-size: 1.8rem;
+		font-size: 3.6rem;
+
+		color: $c-white;
+
+		// border-bottom: solid 5px $c-black;
 	}
 
 	.subheading {
@@ -28,5 +66,33 @@
 		@include f-primary-regular;
 		font-size: 1.4rem;
 		text-decoration: underline;
+
+		background-color: $c-white;
+		width: 800px;
+		height: 60vh;
+		min-height: 200px;
+
+		&:hover,
+		&:active {
+			background-color: darken($c-white, 5%);
+		}
+	}
+
+	.web-image {
+		position: absolute;
+		right: -20%;
+		top: 20%;
+
+		z-index: 500;
+
+		max-height: 40vh;
+	}
+
+	.swiper-container {
+		height: 100%;
+	}
+
+	.parent {
+		position: relative;
 	}
 }

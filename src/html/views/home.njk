@@ -1,12 +1,12 @@
 {% extends "master.njk" %}
 
 {% block content %}
-	<div class="home container">
+	<div class="home">
 		{% include "partials/home/hej.njk" %}
 		<div class="main">
+			{% include "partials/home/show.njk" %}
 			{% include "partials/home/what.njk" %}
 			{% include "partials/home/tell.njk" %}
-			{% include "partials/home/show.njk" %}
 			{% include "partials/home/connect.njk" %}
 		</div>
 	</div>

@@ -37,6 +37,20 @@ $mobile: (
 @import 'components/*';
 
 @import 'sections/*';
+@import 'vendor/*';
+
+/**
+ * Swiper overrides
+ */
+
+.swiper-container-horizontal > .swiper-pagination-progressbar {
+	top: inherit;
+	bottom: 40px;
+
+	.swiper-pagination-progressbar-fill {
+		background: $c-black;
+	}
+}
 
 // Generator Default style, delete these
 h1 {
